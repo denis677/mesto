@@ -1,0 +1,14 @@
+.profile__rectangle {
+  width: 10px;
+  height: 10px;
+  margin: auto;
+}
+
+@media all and (max-width: 880px) {
+  .profile__rectangle {
+    width: 7.5px;
+    height: 7.5px;
+    margin-top: 5.25px;
+    margin-bottom: 5.25px;
+  }
+}
