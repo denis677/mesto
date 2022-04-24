@@ -8,11 +8,11 @@ let ButtonClose = document.querySelector('.popup__close');
 
 
 editButton.addEventListener('click', ()=> {
-  popup.classList.add('popup_opened');
+  popup.classList.add('popup__opened');
 });
 
 ButtonClose.addEventListener('click', ()=> {
-  popup.classList.remove('popup_opened');
+  popup.classList.remove('popup__opened');
 });
 
 let formElement = document.querySelector('.popup__form');
