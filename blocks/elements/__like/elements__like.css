@@ -1,4 +1,4 @@
-.element__like {
+.elements__like {
   width: 22px;
   height: 19px;
   opacity: 1;
@@ -7,16 +7,16 @@
   background-image: url(/mesto/images/Vector.svg);
 }
 
-.element__like:hover {
+.elements__like:hover {
   opacity: 0.5;
 }
 
-.element__like:active {
+.elements__like:active {
   background-image: url(/mesto/images/Union.png);
   opacity: 1;
 }
 
-.element__like:disabled {
+.elements__like:disabled {
   background-image: url(/mesto/images/Vector.svg);
   opacity: 1;
 }
