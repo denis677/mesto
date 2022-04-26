@@ -7,13 +7,13 @@ let ButtonClose = document.querySelector('.popup__close');
 
 
 
-editButton.addEventListener('click', ()=> {
-  popup.classList.add('popup__opened');
-});
+function openPopup() {
+  popup.classList.add('popup_opened');
+};
 
-ButtonClose.addEventListener('click', ()=> {
-  popup.classList.remove('popup__opened');
-});
+function closePopup() {
+  popup.classList.remove('popup_opened');
+};
 
 let formElement = document.querySelector('.popup__form');
 let buttonSave = document.querySelector('.popup__submit-button');
@@ -29,4 +29,9 @@ function formSubmitHandler (evt) {
 };
 
 formElement.addEventListener('submit', formSubmitHandler);
+editButton.addEventListener('click', openPopup);
+ButtonClose.addEventListener('click', closePopup);
 
+buttonSave.onclick = () => {
+  closePopup();
+};

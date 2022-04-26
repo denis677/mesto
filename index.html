@@ -12,7 +12,6 @@
 <body class="page">
   <header class="header">
     <img class="header__logo" src="./images/logo.svg" alt="Логотип место">
-    <div class="header__line"></div>
   </header>
   <main>
     <section class="profile">
@@ -21,58 +20,54 @@
         <div class="profile__info">
           <div class="profile__title-flex">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
-            <button class="profile__edit-button">
-            <img class="profile__rectangle" src="./images/Vector.png" alt="ручка">
-            </button>
+            <button class="profile__edit-button" type="submit"></button>
           </div>
           <h2 class="profile__subtitle">Исследователь океана</h2>
         </div>
       </div>
-      <button class="profile__button">
-        <img class="profile__vector" src="./images/Vector111.png" alt="плюс">
-      </button>
+      <button class="profile__button" type="submit"></button>
     </section>
     <section class="elements">
       <div class="elements__element">
         <img class="elements__mask-group" src="./images/mask-group/kirill-pershin-1088404-unsplash.jpg" alt="картинка">
         <div class="elements__group">
           <h3 class="elements__title">Карачаевск</h3>
-          <img class="elements__like" src="./images/Vector.svg" alt="лайк">
+          <button class="elements__like" type="submit"></button>
         </div>
       </div>
       <div class="elements__element">
         <img class="elements__mask-group" src="./images/mask-group/kirill-pershin-1404681-unsplash.png" alt="картинка">
         <div class="elements__group">
           <h3 class="elements__title">Гора Эльбрус</h3>
-          <img class="elements__like" src="./images/Vector.svg" alt="лайк">
+          <button  class="elements__like" type="submit"></button>
         </div>
       </div>
       <div class="elements__element">
         <img class="elements__mask-group" src="./images/mask-group/kirill-pershin-1556355-unsplash222.png" alt="картинка">
         <div class="elements__group">
           <h3 class="elements__title">Домбай</h3>
-          <img class="elements__like" src="./images/Vector.svg" alt="лайк">
+          <button  class="elements__like" type="submit"></button>
         </div>
       </div>
       <div class="elements__element">
         <img class="elements__mask-group" src="./images/mask-group//kirill-pershin-1404681-unsplash111.png" alt="картинка">
         <div class="elements__group">
           <h3 class="elements__title">Гора Эльбрус</h3>
-          <img class="elements__like" src="./images/Vector.svg" alt="лайк">
+          <button  class="elements__like" type="submit"></button>
         </div>
       </div>
       <div class="elements__element">
         <img class="elements__mask-group" src="./images/mask-group//kirill-pershin-1556355-unsplash.png" alt="картинка">
         <div class="elements__group">
           <h3 class="elements__title">Домбай</h3>
-          <img class="elements__like" src="./images/Vector.svg" alt="лайк">
+          <button  class="elements__like" type="submit"></button>
         </div>
       </div>
       <div class="elements__element">
         <img class="elements__mask-group" src="./images/mask-group/kirill-pershin-1088404-unsplash.png" alt="картинка">
         <div class="elements__group">
           <h3 class="elements__title">Карачаево-Черкессия</h3>
-          <img class="elements__like" src="./images/Vector.svg" alt="лайк">
+          <button  class="elements__like" type="submit"></button>
         </div>
       </div>
     </section>
@@ -83,18 +78,17 @@
   </footer>
 
   <div class="popup">
-    <div class="popup__opened"></div>
     <div class="popup__container">
       <h3 class="popup__edit-popup">Редактировать профиль</h3>
-      <form class="popup__form">
-        <input type="text" value="Жак-Ив Кусто" class="popup__field-author">
-        <input type="text" value="Исследователь океана" class="popup__field-name">
+      <form class="popup__form" type="name">
+        <input type="name" value="Жак-Ив Кусто" class="popup__field-author">
+        <input type="name" value="Исследователь океана" class="popup__field-name">
         <button class="popup__submit-button" type="submit">Сохранить</button>
       </form>
-      <img class="popup__close" src="./images/CloseIcon.png" alt="закрыть">
+      <button class="popup__close" type="submit"></button>
     </div>
   </div>
-<script src="./script.js"></script>
+<script src="./scripts/index.js"></script>
 </body>
 
 </html>

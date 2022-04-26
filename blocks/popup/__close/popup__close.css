@@ -7,6 +7,10 @@
   opacity: 1;
   transition: .3s;
   cursor: pointer;
+  background: url(../../../images/CloseIcon.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: none;
 }
 
 .popup__close:hover {

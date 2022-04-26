@@ -6,6 +6,9 @@
   cursor: pointer;
   opacity: 1;
   transition: .3s;
+  background: url(../../../images/Vector111.png);
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .profile__button:hover {
