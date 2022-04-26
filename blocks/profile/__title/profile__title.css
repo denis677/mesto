@@ -1,6 +1,6 @@
 .profile__title {
-  width: 294px;
-  height: 39px;
+  max-width: 294px;
+  min-height: 39px;
   font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: 500;
