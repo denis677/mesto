@@ -1,0 +1,14 @@
+.popup-form {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(42,44,47,.3);
+  transition: 0.3s;
+  z-index: 2;
+}
