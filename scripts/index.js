@@ -72,7 +72,75 @@ function popupFormOpen () {
   popupForm.classList.toggle('popup-form_opened');
 };
 
-
 profileButton.addEventListener('click', popupFormOpen);
 ButtonCloseForm.addEventListener('click', popupFormOpen);
+
+
+
+const itemListWrapper = document.querySelector('.elements');
+const template = document.getElementById('form-elements');
+const form = document.querySelector('.popup-form__form');
+let theNameInput = document.querySelector('.popup-form__field-author');
+let linkInput = document.querySelector('.popup-form__field-name');
+
+let popupImage = document.querySelector('.popup-image');
+let popupImageClose = document.querySelector('.popup-image__close');
+
+
+popupImageClose.onclick = (evt) => {
+  popupImage.classList.remove('popup-image_opened');
+}
+
+initialCards.forEach(function (element) {
+  const newItemElement = template.content.cloneNode(true);
+  let newItemTitle = newItemElement.querySelector('.elements__title');
+  let newItemImage = newItemElement.querySelector('.elements__mask-group');
+  let newItemElentss = newItemElement.querySelector('.elements__element');
+  let newItemGroup = newItemElement.querySelector('.elements__group');
+  const newItemlike = newItemElement.querySelector('.elements__like');
+  const newItemDelete = newItemElement.querySelector('.elements__delete');
+  itemListWrapper.append(newItemElement);
+  newItemTitle.textContent = element.name;
+  newItemImage.src = element.link;
+  newItemlike.onclick = () => {
+    newItemlike.classList.toggle('elements__like_active');
+  }
+  newItemDelete.onclick = (evt) => {
+    evt.target.closest('.elements__element').remove();
+  };
+  newItemImage.onclick = (evt) => {
+    popupImage.classList.add('popup-image_opened');
+    let popupImageContainer = document.querySelector('.popup-image__container').style = `background-image:url(${element.link})`;
+    let popupTitle = document.querySelector('.popup-image__edit-popup').textContent = element.name;
+    console.dir(evt.target);
+  }
+});
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const newItemElement = template.content.cloneNode(true);
+  let newItemTitle = newItemElement.querySelector('.elements__title').textContent = theNameInput.value;
+  let newItemImage = newItemElement.querySelector('.elements__mask-group').src = linkInput.value;
+  let newItemElentss= newItemElement.querySelector('.elements__element');
+  let newItemGroup = newItemElement.querySelector('.elements__group');
+  const newItemlike = newItemElement.querySelector('.elements__like');
+  const newItemDelete = newItemElement.querySelector('.elements__delete');
+  itemListWrapper.prepend(newItemElement);
+  newItemlike.onclick = () => {
+    newItemlike.classList.toggle('elements__like_active');
+  };
+  newItemDelete.onclick = (evt) => {
+    evt.target.closest('.elements__element').remove();
+  };
+  newItemImage.onclick = () => {
+    popupImage.classList.add('popup-image_opened');
+    let popupImageContainer = document.querySelector('.popup-image__container').style = `background-image:url(${element.link})`;
+    let popupTitle = document.querySelector('.popup-image__edit-popup').textContent = element.name;
+    console.dir(evt.target);
+  }
+});
+
+
+
+
 

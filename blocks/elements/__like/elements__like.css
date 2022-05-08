@@ -14,11 +14,6 @@
   opacity: 0.5;
 }
 
-.elements__like:active {
-  background-image: url(../../../images/Union.png);
-  opacity: 1;
-}
-
 .elements__like:disabled {
   opacity: 1;
 }
