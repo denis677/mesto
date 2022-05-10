@@ -55,12 +55,12 @@ function popupImageOpen() {
 popupImageClose.addEventListener("click", popupImageOpen);
 
 const likeActive = (evt) => {
-  evt.target.classList.toggle('elements__like_active');
-}
+  evt.target.classList.toggle("elements__like_active");
+};
 
 const buttonDelete = (evt) => {
   evt.target.closest(".elements__element").remove();
-}
+};
 
 function createCard(element) {
   const newItemElement = template.content.cloneNode(true);
@@ -75,11 +75,11 @@ function createCard(element) {
   function likeActive() {
     newItemlike.classList.toggle("elements__like_active");
   }
-  newItemlike.addEventListener('click', likeActive);
+  newItemlike.addEventListener("click", likeActive);
   function buttonDelete(evt) {
     evt.target.closest(".elements__element").remove();
   }
-  newItemDelete.addEventListener('click', buttonDelete);
+  newItemDelete.addEventListener("click", buttonDelete);
   function popupImageOpen(evt) {
     popupImage.classList.toggle("popup-image_opened");
     let popupImageContainer = (document.querySelector(
@@ -90,11 +90,9 @@ function createCard(element) {
     ).textContent = element.name);
     console.dir(evt.target);
   }
-  newItemImage.addEventListener('click', popupImageOpen);
+  newItemImage.addEventListener("click", popupImageOpen);
   return newItemElement;
 }
-
-
 
 initialCards.forEach(function (element) {
   createCard(element);
@@ -102,7 +100,7 @@ initialCards.forEach(function (element) {
 });
 
 function renderCard() {
-    const newItemElement = template.content.cloneNode(true);
+  const newItemElement = template.content.cloneNode(true);
   let newItemTitle = newItemElement.querySelector(".elements__title");
   let newItemImage = newItemElement.querySelector(".elements__mask-group");
   let newItemElentss = newItemElement.querySelector(".elements__element");
@@ -115,11 +113,11 @@ function renderCard() {
   function likeActive() {
     newItemlike.classList.toggle("elements__like_active");
   }
-  newItemlike.addEventListener('click', likeActive);
+  newItemlike.addEventListener("click", likeActive);
   function buttonDelete(evt) {
     evt.target.closest(".elements__element").remove();
   }
-  newItemDelete.addEventListener('click', buttonDelete);
+  newItemDelete.addEventListener("click", buttonDelete);
   function popupImageOpen(evt) {
     popupImage.classList.toggle("popup-image_opened");
     let popupImageContainer = (document.querySelector(
@@ -130,7 +128,7 @@ function renderCard() {
     ).textContent = theNameInput.value);
     console.dir(evt.target);
   }
-  newItemImage.addEventListener('click', popupImageOpen);
+  newItemImage.addEventListener("click", popupImageOpen);
   return newItemElement;
 }
 
