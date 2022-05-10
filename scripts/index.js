@@ -26,10 +26,10 @@ buttonEditSave.addEventListener("click", openAndClosePopup);
 
 // sdad
 
-let profileButton = document.querySelector(".profile__button");
-let popupForm = document.querySelector(".popup-form");
-let ButtonCloseForm = document.querySelector(".popup-form__close");
-let popupButtonSaveForm = document.querySelector(".popup-form__submit-button");
+const profileButton = document.querySelector(".profile__button");
+const popupForm = document.querySelector(".popup-form");
+const ButtonCloseForm = document.querySelector(".popup-form__close");
+const popupButtonSaveForm = document.querySelector(".popup-form__submit-button");
 
 function popupFormOpen() {
   popupForm.classList.toggle("popup-form_opened");
@@ -42,11 +42,11 @@ popupButtonSaveForm.addEventListener("click", popupFormOpen);
 const itemListWrapper = document.querySelector(".elements");
 const template = document.getElementById("form-elements");
 const formCreate = document.querySelector(".popup-form__form");
-let theNameInput = document.querySelector(".popup-form__field-author");
-let linkInput = document.querySelector(".popup-form__field-name");
+const theNameInput = document.querySelector(".popup-form__field-author");
+const linkInput = document.querySelector(".popup-form__field-name");
 
-let popupImage = document.querySelector(".popup-image");
-let popupImageClose = document.querySelector(".popup-image__close");
+const popupImage = document.querySelector(".popup-image");
+const popupImageClose = document.querySelector(".popup-image__close");
 
 function popupImageOpen() {
   popupImage.classList.toggle("popup-image_opened");
@@ -64,10 +64,10 @@ const buttonDelete = (evt) => {
 
 function createCard(element) {
   const newItemElement = template.content.cloneNode(true);
-  let newItemTitle = newItemElement.querySelector(".elements__title");
-  let newItemImage = newItemElement.querySelector(".elements__mask-group");
-  let newItemElentss = newItemElement.querySelector(".elements__element");
-  let newItemGroup = newItemElement.querySelector(".elements__group");
+  const newItemTitle = newItemElement.querySelector(".elements__title");
+  const newItemImage = newItemElement.querySelector(".elements__mask-group");
+  const newItemElentss = newItemElement.querySelector(".elements__element");
+  const newItemGroup = newItemElement.querySelector(".elements__group");
   const newItemlike = newItemElement.querySelector(".elements__like");
   const newItemDelete = newItemElement.querySelector(".elements__delete");
   newItemTitle.textContent = element.name;
@@ -82,10 +82,10 @@ function createCard(element) {
   newItemDelete.addEventListener("click", buttonDelete);
   function popupImageOpen(evt) {
     popupImage.classList.toggle("popup-image_opened");
-    let popupImageContainer = (document.querySelector(
+    const popupImageContainer = (document.querySelector(
       ".popup-image__container"
     ).style = `background-image:url(${element.link})`);
-    let popupTitle = (document.querySelector(
+    const popupTitle = (document.querySelector(
       ".popup-image__edit-popup"
     ).textContent = element.name);
     console.dir(evt.target);
@@ -101,10 +101,10 @@ initialCards.forEach(function (element) {
 
 function renderCard() {
   const newItemElement = template.content.cloneNode(true);
-  let newItemTitle = newItemElement.querySelector(".elements__title");
-  let newItemImage = newItemElement.querySelector(".elements__mask-group");
-  let newItemElentss = newItemElement.querySelector(".elements__element");
-  let newItemGroup = newItemElement.querySelector(".elements__group");
+  const newItemTitle = newItemElement.querySelector(".elements__title");
+  const newItemImage = newItemElement.querySelector(".elements__mask-group");
+  const newItemElentss = newItemElement.querySelector(".elements__element");
+  const newItemGroup = newItemElement.querySelector(".elements__group");
   const newItemlike = newItemElement.querySelector(".elements__like");
   const newItemDelete = newItemElement.querySelector(".elements__delete");
   newItemTitle.textContent = theNameInput.value;
@@ -120,10 +120,10 @@ function renderCard() {
   newItemDelete.addEventListener("click", buttonDelete);
   function popupImageOpen(evt) {
     popupImage.classList.toggle("popup-image_opened");
-    let popupImageContainer = (document.querySelector(
+    const popupImageContainer = (document.querySelector(
       ".popup-image__container"
     ).style = `background-image:url(${linkInput.value})`);
-    let popupTitle = (document.querySelector(
+    const popupTitle = (document.querySelector(
       ".popup-image__edit-popup"
     ).textContent = theNameInput.value);
     console.dir(evt.target);
