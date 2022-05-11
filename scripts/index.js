@@ -77,8 +77,8 @@ function createCard(element) {
     evt.target.closest(".elements__element").remove();
   }
   newItemDelete.addEventListener("click", buttonDelete);
-  function popupImageOpen(evt) {
-    popupImage.classList.toggle("popup_opened");
+  newItemImage.addEventListener("click", () => {
+    openAndClosePopup(popupImage);
     const popupImageContainer = (document.querySelector(
       ".popup-image__container"
     ).style = `background-image:url(${element.link})`);
@@ -86,8 +86,7 @@ function createCard(element) {
       ".popup-image__edit-popup"
     ).textContent = element.name);
     console.dir(evt.target);
-  }
-  newItemImage.addEventListener("click", popupImageOpen);
+  });
   return newItemElement;
 }
 
