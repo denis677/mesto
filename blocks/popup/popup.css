@@ -8,7 +8,6 @@
   right: 0;
   bottom: 0;
   background: rgba(42,44,47,.5);
-  transition: 0.3s;
   z-index: 2;
   visibility: hidden;
   opacity: 0;
