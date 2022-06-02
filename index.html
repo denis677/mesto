@@ -28,51 +28,10 @@
       <button class="profile__button" type="button"></button>
     </section>
     <section class="elements">
-    <!-- 
-      <div class="elements__element">
-        <img class="elements__mask-group" src="./images/mask-group/kirill-pershin-1088404-unsplash.jpg" alt="картинка">
-        <div class="elements__group">
-          <h3 class="elements__title">Карачаевск</h3>
-          <button class="elements__like" type="button"></button>
-        </div>
-        <button type="button" class="elements__delete"></button>
-      </div>
-      <div class="elements__element">
-        <img class="elements__mask-group" src="./images/mask-group/kirill-pershin-1404681-unsplash.png" alt="картинка">
-        <div class="elements__group">
-          <h3 class="elements__title">Гора Эльбрус</h3>
-          <button  class="elements__like" type="button"></button>
-        </div>
-      </div>
-      <div class="elements__element">
-        <img class="elements__mask-group" src="./images/mask-group/kirill-pershin-1556355-unsplash222.png" alt="картинка">
-        <div class="elements__group">
-          <h3 class="elements__title">Домбай</h3>
-          <button  class="elements__like" type="button"></button>
-        </div>
-      </div>
-      <div class="elements__element">
-        <img class="elements__mask-group" src="./images/mask-group//kirill-pershin-1404681-unsplash111.png" alt="картинка">
-        <div class="elements__group">
-          <h3 class="elements__title">Гора Эльбрус</h3>
-          <button  class="elements__like" type="button"></button>
-        </div>
-      </div>
-      <div class="elements__element">
-        <img class="elements__mask-group" src="./images/mask-group//kirill-pershin-1556355-unsplash.png" alt="картинка">
-        <div class="elements__group">
-          <h3 class="elements__title">Домбай</h3>
-          <button  class="elements__like" type="button"></button>
-        </div>
-      </div>
-      <div class="elements__element">
-        <img class="elements__mask-group" src="./images/mask-group/kirill-pershin-1088404-unsplash.png" alt="картинка">
-        <div class="elements__group">
-          <h3 class="elements__title">Карачаево-Черкессия</h3>
-          <button  class="elements__like" type="button"></button>
-        </div>
-      </div>
-      -->
+
+
+
+
     </section>
   </main>
 
@@ -83,10 +42,20 @@
   <div class="popup">
     <div class="popup__container">
       <h3 class="popup__edit-popup">Редактировать профиль</h3>
-      <form class="popup__form" name="edit">
-        <input type="text" name="author" value="Жак-Ив Кусто" class="popup__field-author">
-        <input type="text" name="title" value="Исследователь океана" class="popup__field-name">
-        <button class="popup__submit-button" type="submit">Сохранить</button>
+      <form class="popup__form" name="edit" novalidate>
+          <fieldset class="popup__form-set"></fieldset>
+            <label class="popup__field">
+              <input type="text" name="input-author" value="Жак-Ив Кусто" class="popup__input popup__field-author" required minlength="2" maxlength="40">
+
+              <span class="input-author-error input-error"></span>
+              </label>
+            <label class="popup__field">
+              <input type="text" name="input-title" value="Исследователь океана" class="popup__input popup__field-name" required minlength="2" maxlength="200">
+
+              <span class="input-title-error input-error"></span>
+            </label>
+            <button class="popup__submit-button" type="submit">Сохранить</button>
+      </fieldset>
       </form>
       <button class="popup__close" type="button"></button>
     </div>
@@ -95,10 +64,14 @@
   <div class="popup-form">
     <div class="popup-form__container">
       <h3 class="popup-form__edit-popup">Новое место</h3>
-      <form class="popup-form__form" name="new-place">
-        <input type="text" name="name" value="" placeholder="Название" class="popup-form__field-author">
-        <input type="url" name="link" value="" placeholder="Ссылка на картинку" class="popup-form__field-name">
+      <form class="popup-form__form popup__form" name="new-place" novalidate>
+        <fieldset class="popup__form-set">
+        <input type="text" name="input-caption" value="" placeholder="Название" class="popup-form__field-author popup__input" required minlength="2" maxlength="40">
+        <span class="input-caption-error input-error"></span>
+        <input type="url" name="input-link" value="" placeholder="Ссылка на картинку" class="popup-form__field-name popup__input" required minlength="2" maxlength="200">
+        <span class="input-link-error input-error"></span>
         <button class="popup-form__submit-button" type="submit">Создать</button>
+        </fieldset>
       </form>
       <button class="popup-form__close" type="button"></button>
     </div>
@@ -121,6 +94,7 @@
     </div>
     <h3 class="popup-image__edit-popup">Архыз</h3>
   </div>
+<script src="./scripts/validation.js"></script>  
 <script src="./scripts/cards.js"></script>
 <script src="./scripts/index.js"></script>
 </body>

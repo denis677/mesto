@@ -4,7 +4,6 @@
   margin-top: 41px;
   margin-left: 36px;
   margin-right: 36px;
-  margin-bottom: 30px;
   padding: 0;
   border-top: none;
   border-left: none;
@@ -20,9 +19,9 @@
 }
 
 .popup-form__field-author:focus {
-  border-color: #0077ff;
+  border-color: none;
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgb(0, 119, 255, 0.4);
+
 }
 
 @media all and (max-width: 880px) {
