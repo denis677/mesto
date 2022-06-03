@@ -1,11 +1,21 @@
 const config = {
+  formSelector: '.popup-form__form',
+  inputSelector: '.popup-form__input',
+  submitButtonSelector: '.popup-form__submit-button',
+  inactiveButtonClass: 'popup-form__submit-button_disabled',
+  inputErrorClass: 'popup-form__input_type_error',
+  errorClass: 'popup-form__input-error-visible'
+};
+
+const configStand = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__submit-button',
   inactiveButtonClass: 'popup__submit-button_disabled',
   inputErrorClass: 'popup__input_type_error',
   errorClass: 'popup__input-error-visible'
-}; 
+}
+
 
 const showInputError = (formElement, inputElement, errorMessage, validConfig) => {
   const errorElement = formElement.querySelector(`.${inputElement.name}-error`);
@@ -50,7 +60,9 @@ const enableValidation = (validConfig) => {
 };
 
 
+enableValidation(configStand);
 enableValidation(config);
+
 
 function hasInvalidInput (inputList) {
   return inputList.some((inputElement) => {

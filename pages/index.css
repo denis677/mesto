@@ -50,6 +50,10 @@
 @import url(../blocks/popup-form/__field-name/popup-form__field-name.css);
 @import url(../blocks/popup-form/__field__author/popup-form__field_author.css);
 @import url(../blocks/popup-form/__submit-button/popup-form__submit-button.css);
+@import url(../blocks/popup-form/__form-set/popup-form__form-set.css);
+
+@import url(../blocks/popup-form/__input/_type/popup-form__input_type_error.css);
+@import url(../blocks/popup-form/__submit-button/_disabled/popup-form__submit-button_disabled.css);
 
 
 @import url(../blocks/popup-image/popup-image.css);
