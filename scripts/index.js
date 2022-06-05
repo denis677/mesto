@@ -23,8 +23,6 @@ function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   divElementTitle.textContent = authorInput.value;
   divElementSubtitle.textContent = nameInput.value;
-  authorInput.value = "Жак-Ив Кусто";
-  nameInput.value = "Исследователь океана";
 }
 
 formEditElement.addEventListener("submit", handleProfileFormSubmit);
@@ -63,6 +61,8 @@ const linkInput = document.querySelector(".popup-form__field-name");
 
 const popupImage = document.querySelector(".popup-image");
 const popupImageClose = document.querySelector(".popup-image__close");
+const popupImageContainer = document.querySelector(".popup-image__container");
+const popupTitle = document.querySelector(".popup-image__edit-popup");
 
 popupImageClose.addEventListener("click", () => {
   closePopup(popupImage);
@@ -89,12 +89,8 @@ function createCard(element) {
   newItemDelete.addEventListener("click", buttonDelete);
   newItemImage.addEventListener("click", () => {
     openPopup(popupImage);
-    const popupImageContainer = (document.querySelector(
-      ".popup-image__container"
-    ).style = `background-image:url(${element.link})`);
-    const popupTitle = (document.querySelector(
-      ".popup-image__edit-popup"
-    ).textContent = element.name);
+    popupImageContainer.style = `background-image:url(${element.link})`;
+    popupTitle.textContent = element.name;
   });
   return newItemElement;
 }
@@ -115,6 +111,8 @@ formCreate.addEventListener("submit", (e) => {
   closePopup(popupForm);
   theNameInput.value = "";
   linkInput.value = "";
+  popupButtonSaveForm.classList.add('popup-form__submit-button_disabled');
+  popupButtonSaveForm.setAttribute('disabled', true);
 });
 
 popupEdit.addEventListener('click', (e) => {
