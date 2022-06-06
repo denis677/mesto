@@ -2,7 +2,7 @@ const config = {
   formSelector: '.form',
   inputSelector: '.input',
   submitButtonSelector: '.submit-button',
-  inactiveButtonClass: 'popup-form__submit-button_disabled',
+  inactiveButtonClass: 'popup__submit-button_disabled',
   inputErrorClass: 'popup-form__input_type_error',
   errorClass: 'popup-form__input-error-visible'
 };
