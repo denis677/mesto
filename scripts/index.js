@@ -1,6 +1,6 @@
 const buttonEdit = document.querySelector(".profile__edit-button");
-const popupEdit = document.querySelector(".popup");
-const buttonClose = document.querySelector(".popup__close");
+const popupEdit = document.querySelector(".profile-popup");
+const buttonClose = popupEdit.querySelector(".profile-close");
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
@@ -12,12 +12,12 @@ function closePopup(popup) {
   document.removeEventListener('keydown', closeByEscape);
 }
 
-const formEditElement = document.querySelector(".popup__form");
-const buttonEditSave = document.querySelector(".popup__submit-button");
+const formEditElement = document.querySelector(".profile-form");
+const buttonEditSave = document.querySelector(".profile-submit-button");
 const divElementTitle = document.querySelector(".profile__title");
 const divElementSubtitle = document.querySelector(".profile__subtitle");
-const authorInput = document.querySelector(".popup__field-author");
-const nameInput = document.querySelector(".popup__field-name");
+const authorInput = document.querySelector(".profile-field-auhtor");
+const nameInput = document.querySelector(".profile-field-name");
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -28,6 +28,8 @@ function handleProfileFormSubmit(evt) {
 formEditElement.addEventListener("submit", handleProfileFormSubmit);
 buttonEdit.addEventListener("click", () => {
   openPopup(popupEdit);
+  authorInput.value = divElementTitle.textContent;
+  nameInput.value = divElementSubtitle.textContent;
 });
 buttonClose.addEventListener("click", () => {
   closePopup(popupEdit);
@@ -39,10 +41,10 @@ buttonEditSave.addEventListener("click", () => {
 // sdad
 
 const profileButton = document.querySelector(".profile__button");
-const popupForm = document.querySelector(".popup-form");
-const buttonCloseForm = document.querySelector(".popup-form__close");
+const popupForm = document.querySelector(".card-popup");
+const buttonCloseForm = document.querySelector(".card-close");
 const popupButtonSaveForm = document.querySelector(
-  ".popup-form__submit-button"
+  ".card-submit-button"
 );
 
 profileButton.addEventListener("click", () => {
@@ -55,14 +57,14 @@ buttonCloseForm.addEventListener("click", () => {
 
 const itemListWrapper = document.querySelector(".elements");
 const template = document.getElementById("form-elements");
-const formCreate = document.querySelector(".popup-form__form");
-const theNameInput = document.querySelector(".popup-form__field-author");
-const linkInput = document.querySelector(".popup-form__field-name");
+const formCreate = document.querySelector(".card-form");
+const theNameInput = document.querySelector(".card-field-auhtor");
+const linkInput = document.querySelector(".card-field-name");
 
-const popupImage = document.querySelector(".popup-image");
-const popupImageClose = document.querySelector(".popup-image__close");
-const popupImageContainer = document.querySelector(".popup-image__container");
-const popupTitle = document.querySelector(".popup-image__edit-popup");
+const popupImage = document.querySelector(".image-popup");
+const popupImageClose = document.querySelector(".image-close");
+const popupImageContainer = document.querySelector(".image-container");
+const popupTitle = document.querySelector(".image-edit-popup");
 
 popupImageClose.addEventListener("click", () => {
   closePopup(popupImage);

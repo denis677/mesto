@@ -39,41 +39,41 @@
     <p class="footer__author">&copy; 2022 Mesto Russia</p>
   </footer>
 
-  <div class="popup">
+  <div class="popup profile-popup">
     <div class="popup__container">
       <h3 class="popup__edit-popup">Редактировать профиль</h3>
-      <form class="popup__form form" name="edit" novalidate>
+      <form class="popup__form profile-form form" name="edit" novalidate>
           <fieldset class="popup__form-set">
             <label class="popup__field">
-              <input type="text" name="input-author" value="Жак-Ив Кусто" class="popup__field-author input" required minlength="2" maxlength="40">
+              <input type="text" name="input-author" value="Жак-Ив Кусто" class="popup__field-author profile-field-auhtor input" required minlength="2" maxlength="40">
 
               <span class="input-author-error input-error"></span>
               </label>
             <label class="popup__field">
-              <input type="text" name="input-title" value="Исследователь океана" class="popup__field-name input" required minlength="2" maxlength="200">
+              <input type="text" name="input-title" value="Исследователь океана" class="popup__field-name profile-field-name input" required minlength="2" maxlength="200">
 
               <span class="input-title-error input-error"></span>
             </label>
-            <button class="popup__submit-button submit-button" type="submit">Сохранить</button>
+            <button class="popup__submit-button submit-button profile-submit-button" type="submit">Сохранить</button>
       </fieldset>
       </form>
-      <button class="popup__close" type="button"></button>
+      <button class="popup__close profile-close" type="button"></button>
     </div>
   </div>
 
-  <div class="popup-form">
-    <div class="popup-form__container">
-      <h3 class="popup-form__edit-popup">Новое место</h3>
-      <form class="popup-form__form form" name="new-place" novalidate>
-        <fieldset class="popup-form__form-set">
-          <input type="text" name="input-caption" value="" placeholder="Название" class="popup-form__field-author input " required minlength="2" maxlength="40">
+  <div class="popup card-popup">
+    <div class="popup__container">
+      <h3 class="popup__edit-popup">Новое место</h3>
+      <form class="popup__form form card-form" name="new-place" novalidate>
+        <fieldset class="popup__form-set">
+          <input type="text" name="input-caption" value="" placeholder="Название" class="popup__field-author input card-field-auhtor" required minlength="2" maxlength="40">
           <span class="input-caption-error input-error"></span>
-          <input type="url" name="input-link" value="" placeholder="Ссылка на картинку" class="popup-form__field-name input" required minlength="2" maxlength="200">
+          <input type="url" name="input-link" value="" placeholder="Ссылка на картинку" class="popup__field-name input card-field-name" required minlength="2" maxlength="200">
           <span class="input-link-error input-error"></span>
-          <button class="popup-form__submit-button submit-button popup-form__submit-button_disabled" disabled="true" type="submit">Создать</button>
+          <button class="popup__submit-button submit-button card-submit-button popup-form__submit-button_disabled" disabled="true" type="submit">Создать</button>
         </fieldset>
       </form>
-      <button class="popup-form__close" type="button"></button>
+      <button class="popup__close card-close" type="button"></button>
     </div>
   </div>
 
@@ -87,12 +87,12 @@
         <button type="button" class="elements__delete"></button>
       </div>
   </template>
-
-  <div class="popup-image">
-    <div class="popup-image__container">
-      <button class="popup-image__close" type="button"></button>
+<!-- хоть и запрещенно, но тут они не одинаковы, но делаю так как говорят-->
+  <div class="popup image-popup">
+    <div class="image-container">
+      <button class="image-close" type="button"></button>
     </div>
-    <h3 class="popup-image__edit-popup">Архыз</h3>
+    <h3 class=" image-edit-popup">Архыз</h3>
   </div>
 <script src="./scripts/validation.js"></script>  
 <script src="./scripts/cards.js"></script>
