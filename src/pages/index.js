@@ -88,11 +88,13 @@ buttonEdit.addEventListener("click", () => {
     popupSelectors.popupForm,
     validationConfig,
     {callbackSubmit: (obj) => {
-      getCard.addItemPrepend(createCard({obj}));
+      getCard.addItemPrepend(createCard(obj));
     }
   }
 );
+
 popupAddCard.setEventListeners();
+
 
 profileButton.addEventListener("click", () => {
   formClean(popupForm);
