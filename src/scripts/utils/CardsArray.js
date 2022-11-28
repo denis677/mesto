@@ -65,6 +65,8 @@ export const popupImage = document.querySelector(".image-popup");
 export const popupImageClose = document.querySelector(".image-close");
 export const popupImageContainer = document.querySelector(".image-container");
 export const popupTitle = document.querySelector(".image-edit-popup");
+export const popupDeleteSelector = document.querySelector('.popup-delete');
+export const popupDeleteButton = document.querySelector('.popup-delete__button');
 
 export const formValidators = {};
 
@@ -81,5 +83,22 @@ export const userInfoConfig = {
 export const popupSelectors = {
   popupImage: ".image-popup",
   popupEdit: ".profile-popup",
-  popupForm: ".card-popup"
+  popupForm: ".card-popup",
+  popupDelete: ".popup-delete"
+}
+
+export const apiConfig = {
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-54/cards',
+  headers: {
+    authorization: 'c38f4f24-04a4-4306-9cb4-8e1863b21959',
+    'Content-Type': 'application/json'
+  }
+}
+
+export const apiConfigUser = {
+  baseUrl: 'https://nomoreparties.co/v1/cohort-54/users/me',
+  headers: {
+    authorization: 'c38f4f24-04a4-4306-9cb4-8e1863b21959',
+    'Content-Type': 'application/json'
+  }
 }

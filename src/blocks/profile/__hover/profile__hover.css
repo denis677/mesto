@@ -1,0 +1,8 @@
+.profile__hover {
+  position: absolute;
+  left: 44%;
+  bottom: 43%;
+  opacity: 0;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}

@@ -1,9 +1,10 @@
 
 export class Card {
-  constructor(data, cardSelector, handleCardClick) {
-    this.name = data.caption;
+  constructor(data, cardSelector, handleCardClick, handleDeleteClick) {
+    this.name = data.name || data.caption;
     this.link = data.link;
     this.handleCardClick = handleCardClick;
+    this.handleDeleteClick = handleDeleteClick;
     this._cardSelector = cardSelector;
   }
 
@@ -23,7 +24,7 @@ export class Card {
     return this._element;
   }
 
-  _deleteCard() {
+  deleteCard() {
     this._element.closest(".elements__element").remove();
   }
   
@@ -38,7 +39,8 @@ export class Card {
     });
 
     this._element.querySelector('.elements__delete').addEventListener('click', () => {
-      this._deleteCard();
+      console.log("работаем")
+      this.handleDeleteClick();
     });
 
   }
