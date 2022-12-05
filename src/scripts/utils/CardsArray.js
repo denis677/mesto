@@ -44,6 +44,7 @@ export const divElementTitle = document.querySelector(".profile__title");
 export const divElementSubtitle = document.querySelector(".profile__subtitle");
 export const authorInput = document.querySelector(".profile-field-auhtor");
 export const nameInput = document.querySelector(".profile-field-name");
+export const newAvatarInput = document.querySelector('.popup-new-avatar__field-link');
 
 export const profileButton = document.querySelector(".profile__button");
 export const popupForm = document.querySelector(".card-popup");
@@ -67,7 +68,8 @@ export const popupImageContainer = document.querySelector(".image-container");
 export const popupTitle = document.querySelector(".image-edit-popup");
 export const popupDeleteSelector = document.querySelector('.popup-delete');
 export const popupDeleteButton = document.querySelector('.popup-delete__button');
-
+export const avatar = document.querySelector('.profile__avatar');
+export const profileEdit = document.querySelector('.profile__hover-position');
 export const formValidators = {};
 
 
@@ -75,16 +77,22 @@ export const containerConfig = {
   container: ".elements"
 }
 
+// export const cardConfig = {
+//   buttonHeartClassActive: 'elements__like_active',
+// }
+
 export const userInfoConfig = {
   nameSelector: '.profile__title',
-  aboutSelector: '.profile__subtitle'
+  aboutSelector: '.profile__subtitle',
+  avatarSelector: '.profile__avatar'
 }
 
 export const popupSelectors = {
   popupImage: ".image-popup",
   popupEdit: ".profile-popup",
   popupForm: ".card-popup",
-  popupDelete: ".popup-delete"
+  popupDelete: ".popup-delete",
+  popupNewAvatar: ".popup-new-avatar"
 }
 
 export const apiConfig = {

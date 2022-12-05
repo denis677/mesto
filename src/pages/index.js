@@ -27,7 +27,13 @@ import { initialCards,
         userInfoConfig,
         popupSelectors,
         popupDeleteSelector,
-        popupDeleteButton
+        popupDeleteButton,
+        avatar,
+        apiConfig,
+        apiConfigUser,
+        apiConfigEditUser,
+        profileEdit,
+        newAvatarInput
       } from '../scripts/utils/CardsArray.js';
 import { Card } from '../scripts/components/Сard.js';
 import { FormValidator } from '../scripts/components/FormValidator.js';
@@ -39,30 +45,55 @@ import UserUnfo from '../scripts/components/UserUnfo.js';
 import './index.css';
 import Api from '../scripts/components/Api.js';
 import PopupWithDelete from '../scripts/components/PopupWithDelete.js';
-import { apiConfig } from '../scripts/utils/CardsArray.js';
-import { apiConfigUser } from '../scripts/utils/CardsArray.js';
+
 
 const cardApi = new Api(apiConfig);
 const userApi = new Api(apiConfigUser);
-
 //! Функция создания карточек
 
 function handleCardClick(name, link) {
   cardPopup.open(name, link);
 };
 
-function handleDeleteClick() {
+function handleDeleteClick(cardId) {
   popupDelete.open()
+  console.log(cardId);
   popupDeleteButton.onclick = () => {
-    this.deleteCard();
-    popupDelete.close();
-  }
+    cardApi.deleteCard(cardId)
+      .then(() => {
+        console.log(cardId);
+        this.deleteCard();
+        popupDelete.close();
+      })
+      .catch((error) =>console.log(`Ошибка при удалении карточки: ${error}`))
+    }
 }
 
+
 function createCard(data) {
-  const card = new Card(data, '#form-elements', handleCardClick, handleDeleteClick);
+  const card = new Card(data, '#form-elements', handleCardClick, handleDeleteClick, userInfo.getUserInfo().userId, handleLikeClick);
   const cardElement = card.generateCard();
   return cardElement;
+}
+
+function handleLikeClick(cardId, isLiked, updateLikes) {
+  if(isLiked) {
+    cardApi.getLikeCard(cardId)
+      .then((arr) => {
+        updateLikes(arr.likes);
+        console.log(arr.likes);
+        console.log("ЛАЙК СТАВЛЮ");
+      })
+      .catch((error) =>console.log(`Ошибка при удалении карточки: ${error}`))
+  } else {
+    cardApi.deleteLike(cardId)
+      .then((arr) => {
+        updateLikes(arr.likes);
+        console.log(arr.likes);
+        console.log("ЛАЙК Убираю СТАВЛЮ");
+      })
+      .catch((error) =>console.log(`Ошибка при удалении карточки: ${error}`))
+  }
 }
 
 const getCard = new Section({
@@ -72,38 +103,50 @@ const getCard = new Section({
   }
 }, containerConfig);
 
-cardApi.getInitialCards()
-  .then((items) => {
-    console.log("sdad", items);
-    getCard.renderItem(items);
-  })
-  .catch((error) => console.log(error))
+const popupDelete = new PopupWithDelete(popupSelectors.popupDelete, validationConfig);
+popupDelete.setEventListeners();
 
-  const popupDelete = new PopupWithDelete(popupSelectors.popupDelete);
-  popupDelete.setEventListeners();
-
-  const cardPopup = new PopupWithImage(popupSelectors.popupImage);
-  cardPopup.setEventListeners();
+const cardPopup = new PopupWithImage(popupSelectors.popupImage);
+cardPopup.setEventListeners();
 
 const userInfo = new UserUnfo(userInfoConfig);
 
+userApi.getDataUser()
+  .then((result) => {
+    userInfo.setUserInfo(result);
+    console.log(result);
+    const currentUserInfo = userInfo.getUserInfo();
+    authorInput.value = currentUserInfo.name;
+    nameInput.value = currentUserInfo.about;
+    avatar.src = currentUserInfo.avatar;
+  })
+  .catch((error) => console.log(error))
 
 const popupProfile = new PopupWithForm(
     popupSelectors.popupEdit,
     validationConfig,
-    {callbackSubmit: (ProfileinputValue) => {
-      // userApi.getDataUser();
-      userInfo.setUserInfo(ProfileinputValue);
+    {callbackSubmit: (PopupInput) => {
+      console.log(PopupInput);
+      popupProfile.renderLoading(true);
+      userApi.editDataUser({name: PopupInput.author, about: PopupInput.title})
+        .then((result) => {
+          userInfo.setUserInfo(result);
+        })
+        .catch((error) => console.log(error))
+        .finally(() => {
+          popupProfile.renderLoading(false);
+        })
     }
   }
 );
 
 popupProfile.setEventListeners();
-
 buttonEdit.addEventListener("click", () => {
-  const currentUserInfo = userInfo.getUserInfo();
-  authorInput.value = currentUserInfo.name;
-  nameInput.value = currentUserInfo.about;
+const currentUserInfo = userInfo.getUserInfo();
+authorInput.value = currentUserInfo.name;
+nameInput.value = currentUserInfo.about;
+console.log(authorInput.value);
+console.log(currentUserInfo.name);
   formClean(popupEdit);
   popupProfile.open();
 })
@@ -115,13 +158,17 @@ const popupAddCard = new PopupWithForm(
   validationConfig,
   {callbackSubmit: (obj) => {
     console.log(obj);
-    cardApi.addCard(obj)
+    popupAddCard.renderLoading(true);
+    cardApi.addCard({name: obj.caption, link: obj.link})
       .then((newItemData) => {
         console.log(newItemData);
-        // const cardItem = createCard(newItemData);
-        // getCard.addItemPrepend(createCard(cardItem));
+        const cardItem = createCard(newItemData);
+        getCard.addItemPrepend(createCard(cardItem));
       })
       .catch((error) => console.log(`Ошибка при добавлении карточки: ${error}`))
+      .finally(() => {
+        popupAddCard.renderLoading(false);
+      })
   }
 });
 popupAddCard.setEventListeners();
@@ -129,6 +176,34 @@ profileButton.addEventListener("click", () => {
   formClean(popupForm);
   popupAddCard.open();
 });
+
+
+const popupEditAvatar = new PopupWithForm(
+  popupSelectors.popupNewAvatar,
+  validationConfig,
+  {callbackSubmit: (obj) =>{
+    console.log(obj.link);
+    popupEditAvatar.renderLoading(true);
+    userApi.editAvatar({link: obj.link})
+      .then(() => {
+        userInfo.setAvatar({link: obj.link});
+      })
+      .catch((error) => console.log(`Ошибка при добавлении карточки: ${error}`))
+      .finally(() => {
+        popupEditAvatar.renderLoading(false);
+      })
+  }}
+);
+
+popupEditAvatar.setEventListeners();
+
+
+profileEdit.addEventListener('click', () => {
+  popupEditAvatar.open();
+})
+
+
+
 
 //! Включение валидации
 const enableValidation = (validationConfig) => {
@@ -150,3 +225,11 @@ const formClean = (popup) => {
   const form = popup.querySelector(validationConfig.formSelector);
   formValidators[form.name].checkValid();
 };
+
+cardApi.getInitialCards()
+  .then((items) => {
+    getCard.renderItem(items);
+  })
+  .catch((error) => console.log(error))
+
+  

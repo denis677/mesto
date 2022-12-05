@@ -84,7 +84,10 @@
         <img class="elements__mask-group" src="<%=require('./images/mask-group//kirill-pershin-1556355-unsplash.png')%" alt="картинка">
         <div class="elements__group">
           <h3 class="elements__title">Домбай</h3>
-          <button  class="elements__like" type="button"></button>
+          <div class="elements__likes">
+            <button  class="elements__like" type="button"></button>
+            <p class="elements__numbers">0</p>
+          </div>
         </div>
         <button type="button" class="elements__delete"></button>
       </div>
@@ -99,20 +102,21 @@
   </div>
   <div class="popup popup-delete">
     <div class="popup-delete__container">
-      <h2 class="popup-delete__title">Вы уверены?</h2>
-      <button class="popup-delete__button" type="submit">ДА</button>
+      <!-- <form class="popup-delete__form form card-form" name="card-delete" novalidate> -->
+        <h2 class="popup-delete__title">Вы уверены?</h2>
+        <button class="popup-delete__button" type="submit">ДА</button>
+      <!-- </form> -->
       <button class="popup-delete__close close" type="button"></button>
     </div>
   </div>
   <div class="popup popup-new-avatar">
     <div class="popup-new-avatar__container">
       <h2 class="popup-new-avatar__title">Обновить аватар</h2>
-      <form class="popup-new-avatar__form form card-form" name="new-place" novalidate>
+      <form class="popup-new-avatar__form form card-form" name="new-avatar" novalidate>
         <fieldset class="popup-new-avatar__form-set">
-          <input type="url" name="link" value="" class="popup-new-avatar__field-link input card-field-name" required minlength="2" maxlength="200">
+          <input type="url" name="link" value="" class="popup-new-avatar__field-link input card-field-link" required minlength="2" maxlength="200">
           <span class="link-error input-error"></span>
-          <button class="popup-new-avatar__button submit-button popup-new-avatar-submit-button" type="submit">Сохранить</button>
-          <!-- <button class="popup__submit-button submit-button card-submit-button popup__submit-button_disabled" disabled="true" type="submit">Создать</button> -->
+          <button class="popup__submit-button popup-new-avatar-button submit-button card-submit-button popup__submit-button_disabled" type="submit">Сохранить</button>
         </fieldset>
       </form>
       <button class="popup-new-avatar__close close" type="button"></button>

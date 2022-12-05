@@ -1,10 +1,17 @@
 
 export class Card {
-  constructor(data, cardSelector, handleCardClick, handleDeleteClick) {
-    this.name = data.name || data.caption;
+  constructor(data, cardSelector, handleCardClick, userId, handleDeleteClick, handleLikeClick) {
+    this.name = data.name;
     this.link = data.link;
+    this._id = data._id;
+    // this.config = config;
+    this.userId = userId;
+    this.cardOwnerId = data.owner._id;
+    this.likes = data.likes;
+
     this.handleCardClick = handleCardClick;
     this.handleDeleteClick = handleDeleteClick;
+    this.handleLikeClick = handleLikeClick;
     this._cardSelector = cardSelector;
   }
 
@@ -20,18 +27,49 @@ export class Card {
     this._element.querySelector('.elements__mask-group').src = `${this.link}`;
     this._element.querySelector('.elements__mask-group').alt = `${this.name}`;
     this._element.querySelector('.elements__title').textContent = this.name;
+    this.trash = this._element.querySelector('.elements__delete');
+    this.likeNumber = this._element.querySelector('.elements__numbers');
+    this.giveClickLike();
+    this.isMine();
 
     return this._element;
   }
 
+  giveClickLike() {
+    this.likeNumber.textContent = this.likes.length;
+    console.log(this._like);
+    this._like.classList.toggle('elements__like_active', this.isLiked());
+  }
+
+  isLiked() {
+    console.log('ИЗ ЛИКЕД')
+    return this.likes.some((item) => item._id === this.userId);
+  }
+
+  updateLikes = (arr) => {
+    console.log('АПДЕЙТ ЛАЙК')
+    this.likes = arr;
+    this.giveClickLike();
+  }
+
+  isMine() {
+    if (!(this.userId === this.cardOwnerId)) {
+      console.log(this.cardOwnerId);
+      console.log(this.userId);
+      this.trash.remove();
+    }
+  }
+
   deleteCard() {
     this._element.closest(".elements__element").remove();
+    this._element = null;
   }
   
   _setEventListeners() {
     this._like = this._element.querySelector('.elements__like');
     this._like.addEventListener('click', () => {
-      this._giveClickLike();
+      console.log('Я ЛАЙКАЮСЬ!')
+      this.handleLikeClick(this._id, this.isLiked(), this.updateLikes)
     });
 
     this._element.querySelector('.elements__mask-group').addEventListener('click', () => {
@@ -40,12 +78,8 @@ export class Card {
 
     this._element.querySelector('.elements__delete').addEventListener('click', () => {
       console.log("работаем")
-      this.handleDeleteClick();
+      this.handleDeleteClick(this._id);
     });
 
-  }
-
-  _giveClickLike() {
-    this._like.classList.toggle('elements__like_active');
   }
 }

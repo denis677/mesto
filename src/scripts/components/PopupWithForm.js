@@ -6,6 +6,8 @@ export default class PopupWithForm extends Popup {
     this._callBackSubmit = callbackSubmit;
     this._popupForm = this.popupSelector.querySelector(сonfig.formSelector);
     this._inputList = Array.from(this._popupForm.querySelectorAll(сonfig.inputSelector));
+    this._buttonSubmit = this._popupForm.querySelector(сonfig.submitButtonSelector);
+    this._buttonDefaultText = this._buttonSubmit.textContent;
   }
 
   _getInputValues = () => {
@@ -13,6 +15,7 @@ export default class PopupWithForm extends Popup {
     this._inputList.forEach( (input) => {
       inputValues[input.name] = input.value;
     });
+    console.log(inputValues);
     return inputValues;
   }
 
@@ -30,6 +33,14 @@ export default class PopupWithForm extends Popup {
   close() {
     super.close();
     this._popupForm.reset();
+  }
+
+  renderLoading(isLoading) {
+    if(isLoading) {
+      this._buttonSubmit.textContent = 'Загрузка...'
+    } else {
+      this._buttonSubmit.textContent = this._buttonDefaultText;
+    }
   }
 }
 
