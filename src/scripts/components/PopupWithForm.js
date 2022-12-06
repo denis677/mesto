@@ -4,7 +4,7 @@ export default class PopupWithForm extends Popup {
   constructor(popupSelector, сonfig, {callbackSubmit}) {
     super(popupSelector);
     this._callBackSubmit = callbackSubmit;
-    this._popupForm = this.popupSelector.querySelector(сonfig.formSelector);
+    this._popupForm = this.popup.querySelector(сonfig.formSelector);
     this._inputList = Array.from(this._popupForm.querySelectorAll(сonfig.inputSelector));
     this._buttonSubmit = this._popupForm.querySelector(сonfig.submitButtonSelector);
     this._buttonDefaultText = this._buttonSubmit.textContent;
@@ -22,7 +22,6 @@ export default class PopupWithForm extends Popup {
   _setValues = (evt) => {
     evt.preventDefault();
     this._callBackSubmit(this._getInputValues());
-    this.close();
   }
 
   setEventListeners() {

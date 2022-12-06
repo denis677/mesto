@@ -1,5 +1,3 @@
-
-
 export default class UserUnfo {
   constructor(userInfoConfig){
     this._name = document.querySelector(userInfoConfig.nameSelector);
@@ -27,6 +25,4 @@ export default class UserUnfo {
       userId: this.userId
     };
   }
-
-
 }
