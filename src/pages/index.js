@@ -92,7 +92,7 @@ function handleLikeClick(cardId, isLiked, updateLikes) {
     cardApi.deleteLike(cardId)
       .then((arr) => {
         updateLikes(arr.likes);
-        console.log("ЛАЙК Убираю СТАВЛЮ");
+        console.log("ЛАЙК Убираю");
       })
       .catch((error) =>console.log(`Ошибка при удалении карточки: ${error}`))
   }
@@ -121,7 +121,6 @@ const popupProfile = new PopupWithForm(
     popupSelectors.popupEdit,
     validationConfig,
     {callbackSubmit: (PopupInput) => {
-      console.log(PopupInput);
       popupProfile.renderLoading(true);
       cardApi.editDataUser({name: PopupInput.author, about: PopupInput.title})
         .then((result) => {
@@ -141,8 +140,6 @@ buttonEdit.addEventListener("click", () => {
 const currentUserInfo = userInfo.getUserInfo();
 authorInput.value = currentUserInfo.name;
 nameInput.value = currentUserInfo.about;
-console.log(authorInput.value);
-console.log(currentUserInfo.name);
   formClean(popupEdit);
   popupProfile.open();
 })
@@ -151,13 +148,10 @@ const popupAddCard = new PopupWithForm(
   popupSelectors.popupForm,
   validationConfig,
   {callbackSubmit: (obj) => {
-    console.log(obj);
     popupAddCard.renderLoading(true);
     cardApi.addCard({name: obj.caption, link: obj.link})
       .then((newItemData) => {
-        console.log(newItemData);
-        const cardItem = createCard(newItemData);
-        getCard.addItemPrepend(createCard(cardItem));
+        getCard.addItemPrepend(createCard(newItemData));
         popupAddCard.close();
       })
       .catch((error) => console.log(`Ошибка при добавлении карточки: ${error}`))

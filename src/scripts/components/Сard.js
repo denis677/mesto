@@ -35,7 +35,6 @@ export class Card {
   giveClickLike() {
     this.likeNumber.textContent = this.likes.length;
     this._like.classList.toggle(this.config.buttonHeartClassActive, this.isLiked());
-    console.log(this.likes.length)
   }
 
   isLiked() {
@@ -50,8 +49,8 @@ export class Card {
 
   isMine() {
     if (!(this.userId === this.cardOwnerId)) {
-      console.log(this.userId)
-      console.log(this.cardOwnerId)
+      // console.log(this.userId)
+      // console.log(this.cardOwnerId)
       this.trash.remove();
     }
   }

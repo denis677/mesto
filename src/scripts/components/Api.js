@@ -31,11 +31,6 @@ export default class Api {
     .catch(err => console.log(err));
   }
 
-
-  // getAllNeddedData() {
-  //   return Promise.all([this.getInitialCards(), this.addCard()])
-  // }
-
   deleteCard(cardId) {
     console.log(`${this.baseUrl}/cards/${cardId}`)
     return fetch(`${this.baseUrl}/cards/${cardId}`, {
