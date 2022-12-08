@@ -41,7 +41,7 @@ import Section from '../scripts/components/Section.js';
 import Popup from '../scripts/components/Popup.js';
 import PopupWithImage from '../scripts/components/PopupWithImage.js';
 import PopupWithForm from '../scripts/components/PopupWithForm.js';
-import UserUnfo from '../scripts/components/UserUnfo.js';
+import UserInfo from '../scripts/components/UserInfo.js';
 import './index.css';
 import Api from '../scripts/components/Api.js';
 import PopupWithDelete from '../scripts/components/PopupWithDelete.js';
@@ -54,7 +54,7 @@ popupDelete.setEventListeners();
 const cardPopup = new PopupWithImage(popupSelectors.popupImage);
 cardPopup.setEventListeners();
 
-const userInfo = new UserUnfo(userInfoConfig);
+const userInfo = new UserInfo(userInfoConfig);
 
 function handleCardClick(name, link) {
   cardPopup.open(name, link);

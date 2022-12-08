@@ -1,5 +1,5 @@
 export class Card {
-  constructor(data, cardSelector, config, handleCardClick, userId, handleDeleteClick, handleLikeClick) {
+  constructor(data, cardSelector, config, handleCardClick, handleDeleteClick, userId, handleLikeClick) {
     this.name = data.name;
     this.link = data.link;
     this._id = data._id;
@@ -38,7 +38,11 @@ export class Card {
   }
 
   isLiked() {
-    return this.likes.some((item) => item._id === this.userId);
+    return this.likes.some((item) => {
+      item._id === this.userId
+      console.log(item._id)
+      console.log(this.userId)
+    });
   }
 
   updateLikes = (arr) => {
@@ -49,8 +53,6 @@ export class Card {
 
   isMine() {
     if (!(this.userId === this.cardOwnerId)) {
-      // console.log(this.userId)
-      // console.log(this.cardOwnerId)
       this.trash.remove();
     }
   }

@@ -34,7 +34,7 @@ export class FormValidator {
   }
 };
 
-  _hasInvalidInput(inputList) {
+  _hasInvalidInput() {
     return this._inputList.some((inputElement) => {
     return !inputElement.validity.valid;
   }); 
@@ -60,12 +60,12 @@ resetValidation() {
   })
 }
 
-_setEventListeners(inputList) {
+_setEventListeners() {
   
-  inputList.forEach((inputElement) => {
+  this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
         this._checkInputValidity(inputElement);
-        this.toggleButtonState(inputList);
+        this.toggleButtonState();
       });
     });
 }
