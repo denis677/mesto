@@ -35,13 +35,12 @@ export class Card {
   giveClickLike() {
     this.likeNumber.textContent = this.likes.length;
     this._like.classList.toggle(this.config.buttonHeartClassActive, this.isLiked());
+    console.log(this.isLiked())
   }
 
   isLiked() {
     return this.likes.some((item) => {
       item._id === this.userId
-      console.log(item._id)
-      console.log(this.userId)
     });
   }
 

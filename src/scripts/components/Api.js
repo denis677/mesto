@@ -69,11 +69,10 @@ export default class Api {
     .catch(err => console.log(err));
   }
 
-  getLikeCard() {
+  getLikeCard(cardId) {
     return fetch(`${this.baseUrl}/cards/${cardId}/likes`, {
       headers: this.headers,
       method: "PUT",
-      body: JSON.stringify()
     })
     .then(res => this._checkResponse(res))
     .catch(err => console.log(err));
