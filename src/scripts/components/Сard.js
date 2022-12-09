@@ -7,7 +7,6 @@ export class Card {
     this.userId = userId;
     this.cardOwnerId = data.owner._id;
     this.likes = data.likes;
-
     this.handleCardClick = handleCardClick;
     this.handleDeleteClick = handleDeleteClick;
     this.handleLikeClick = handleLikeClick;
@@ -35,7 +34,6 @@ export class Card {
   giveClickLike() {
     this.likeNumber.textContent = this.likes.length;
     this._like.classList.toggle(this.config.buttonHeartClassActive, this.isLiked());
-    console.log(this.isLiked())
   }
 
   isLiked() {
@@ -47,6 +45,7 @@ export class Card {
   updateLikes = (arr) => {
     console.log('АПДЕЙТ ЛАЙК')
     this.likes = arr;
+    console.log(arr)
     this.giveClickLike();
   }
 

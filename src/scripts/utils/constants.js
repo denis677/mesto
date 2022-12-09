@@ -78,7 +78,7 @@ export const containerConfig = {
 }
 
 export const cardConfig = {
-  buttonHeartClassActive: 'elements__like_active',
+  buttonHeartClassActive: 'elements__like_active'
 }
 
 export const userInfoConfig = {

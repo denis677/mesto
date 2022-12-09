@@ -85,14 +85,12 @@ function handleLikeClick(cardId, isLiked, updateLikes) {
     cardApi.deleteLike(cardId)
       .then((arr) => {
         updateLikes(arr.likes);
-        console.log("ЛАЙК СТАВЛЮ", arr.likes);
       })
       .catch((error) =>console.log(`Ошибка при удалении карточки: ${error}`))
   } else {
     cardApi.getLikeCard(cardId)
       .then((arr) => {
         updateLikes(arr.likes);
-        console.log("ЛАЙК Убираю", arr);
       })
       .catch((error) =>console.log(`Ошибка при удалении карточки: ${error}`))
   }
