@@ -20,6 +20,7 @@ export class Card {
 
   generateCard() {
     this._element = this._getTemplate();
+    this._like = this._element.querySelector('.elements__like');
     this._setEventListeners();
     this._element.querySelector('.elements__mask-group').src = `${this.link}`;
     this._element.querySelector('.elements__mask-group').alt = `${this.name}`;
@@ -28,25 +29,28 @@ export class Card {
     this.likeNumber = this._element.querySelector('.elements__numbers');
     this.giveClickLike();
     this.isMine();
+    
     return this._element;
   }
 
   giveClickLike() {
     this.likeNumber.textContent = this.likes.length;
-    this._like.classList.toggle(this.config.buttonHeartClassActive, this.isLiked());
+    if(this.isLiked()) {
+      this._like.classList.toggle(this.config.buttonHeartClassActive);
+      console.log("РАБОТАЕТ?")
+    }
   }
 
   isLiked() {
     return this.likes.some((item) => {
       item._id === this.userId
+      console.log(111)
     });
   }
 
   updateLikes = (arr) => {
-    console.log('АПДЕЙТ ЛАЙК')
     this.likes = arr;
-    console.log(arr)
-    this.giveClickLike();
+    this.giveClickLike()
   }
 
   isMine() {
@@ -61,7 +65,6 @@ export class Card {
   }
   
   _setEventListeners() {
-    this._like = this._element.querySelector('.elements__like');
     this._like.addEventListener('click', () => {
       this.handleLikeClick(this._id, this.isLiked(), this.updateLikes)
     });
@@ -71,9 +74,7 @@ export class Card {
     });
 
     this._element.querySelector('.elements__delete').addEventListener('click', () => {
-      console.log("работаем")
       this.handleDeleteClick(this._id);
     });
-
   }
 }

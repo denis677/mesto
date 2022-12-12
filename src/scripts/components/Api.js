@@ -18,7 +18,6 @@ export default class Api {
       headers: this.headers
     })
     .then(res => this._checkResponse(res))
-    .catch(err => console.log(err));
   }
 
   addCard({name, link}) {
@@ -28,7 +27,6 @@ export default class Api {
       body: JSON.stringify({name, link})
     })
     .then(res => this._checkResponse(res))
-    .catch(err => console.log(err));
   }
 
   deleteCard(cardId) {
@@ -38,7 +36,6 @@ export default class Api {
       headers: this.headers,
     })
     .then(res => this._checkResponse(res))
-    .catch(err => console.log(err));
   }
 
   getDataUser() {
@@ -46,7 +43,6 @@ export default class Api {
       headers: this.headers
     })
     .then(res => this._checkResponse(res))
-    .catch(err => console.log(err));
   }
 
   editDataUser({name, about}) {
@@ -56,7 +52,6 @@ export default class Api {
       body: JSON.stringify({name, about})
     })
     .then(res => this._checkResponse(res))
-    .catch(err => console.log(err));
   }
 
   editAvatar({link}) {
@@ -66,7 +61,6 @@ export default class Api {
       body: JSON.stringify({avatar: link})
     })
     .then(res => this._checkResponse(res))
-    .catch(err => console.log(err));
   }
 
   getLikeCard(cardId) {
@@ -75,7 +69,6 @@ export default class Api {
       method: "PUT",
     })
     .then(res => this._checkResponse(res))
-    .catch(err => console.log(err));
   }
 
   deleteLike(cardId) {
@@ -84,6 +77,5 @@ export default class Api {
       method: 'DELETE',
     })
     .then(res => this._checkResponse(res))
-    .catch(err => console.log(err));
   }
 }

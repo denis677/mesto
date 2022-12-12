@@ -33,7 +33,8 @@ import { initialCards,
         apiConfigEditUser,
         profileEdit,
         newAvatarInput,
-        cardConfig
+        cardConfig,
+        popupNewAvatars
       } from '../scripts/utils/constants.js';
 import { Card } from '../scripts/components/Сard.js';
 import { FormValidator } from '../scripts/components/FormValidator.js';
@@ -62,11 +63,9 @@ function handleCardClick(name, link) {
 
 function handleDeleteClick(cardId) {
   popupDelete.open()
-  console.log(cardId);
   popupDeleteButton.onclick = () => {
     cardApi.deleteCard(cardId)
       .then(() => {
-        console.log(cardId);
         this.deleteCard();
         popupDelete.close();
       })
@@ -81,7 +80,7 @@ function createCard(data) {
 }
 
 function handleLikeClick(cardId, isLiked, updateLikes) {
-  if(isLiked) {
+  if (isLiked) {
     cardApi.deleteLike(cardId)
       .then((arr) => {
         updateLikes(arr.likes);
@@ -102,8 +101,6 @@ Promise.all([cardApi.getDataUser(), cardApi.getInitialCards()])
         const currentUserInfo = userInfo.getUserInfo();
         authorInput.value = currentUserInfo.name;
         nameInput.value = currentUserInfo.about;
-        avatar.src = currentUserInfo.avatar;
-        avatar._id = currentUserInfo.userId;
         getCard.renderItem(items);
   })
   .catch((error) => console.log(error))
@@ -147,7 +144,7 @@ const popupAddCard = new PopupWithForm(
   validationConfig,
   {callbackSubmit: (obj) => {
     popupAddCard.renderLoading(true);
-    cardApi.addCard({name: obj.caption, link: obj.link})
+    cardApi.addCard({name: obj.name, link: obj.link})
       .then((newItemData) => {
         getCard.addItemPrepend(createCard(newItemData));
         popupAddCard.close();
@@ -185,6 +182,7 @@ const popupEditAvatar = new PopupWithForm(
 popupEditAvatar.setEventListeners();
 
 profileEdit.addEventListener('click', () => {
+  formClean(popupNewAvatars);
   popupEditAvatar.open();
 })
 

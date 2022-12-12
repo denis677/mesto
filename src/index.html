@@ -47,14 +47,14 @@
       <form class="popup__form profile-form form" name="edit" novalidate>
           <fieldset class="popup__form-set">
             <label class="popup__field">
-              <input type="text" name="author" value="Жак-Ив Кусто" class="popup__field-author profile-field-auhtor input" required minlength="2" maxlength="40">
+              <input type="text" name="input-author" value="Жак-Ив Кусто" class="popup__field-author profile-field-auhtor input" required minlength="2" maxlength="40">
 
-              <span class="author-error input-error"></span>
+              <span class="input-author-error input-error"></span>
               </label>
             <label class="popup__field">
-              <input type="text" name="title" value="Исследователь океана" class="popup__field-name profile-field-name input" required minlength="2" maxlength="200">
+              <input type="text" name="input-title" value="Исследователь океана" class="popup__field-name profile-field-name input" required minlength="2" maxlength="200">
 
-              <span class="title-error input-error"></span>
+              <span class="input-title-error input-error"></span>
             </label>
             <button class="popup__submit-button submit-button profile-submit-button" type="submit">Сохранить</button>
       </fieldset>
@@ -68,10 +68,10 @@
       <h3 class="popup__edit-popup">Новое место</h3>
       <form class="popup__form form card-form" name="new-place" novalidate>
         <fieldset class="popup__form-set">
-          <input type="text" name="caption" value="" placeholder="Название" class="popup__field-author input card-field-auhtor" required minlength="2" maxlength="40">
-          <span class="caption-error input-error"></span>
-          <input type="url" name="link" value="" placeholder="Ссылка на картинку" class="popup__field-name input card-field-name" required minlength="2" maxlength="200">
-          <span class="link-error input-error"></span>
+          <input type="text" name="input-name" value="" placeholder="Название" class="popup__field-author input card-field-auhtor" required minlength="2" maxlength="40">
+          <span class="input-name-error input-error"></span>
+          <input type="url" name="input-link" value="" placeholder="Ссылка на картинку" class="popup__field-name input card-field-name" required minlength="2" maxlength="200">
+          <span class="input-link-error input-error"></span>
           <button class="popup__submit-button submit-button card-submit-button popup__submit-button_disabled" disabled="true" type="submit">Создать</button>
         </fieldset>
       </form>
@@ -114,8 +114,8 @@
       <h2 class="popup-new-avatar__title">Обновить аватар</h2>
       <form class="popup-new-avatar__form form card-form" name="new-avatar" novalidate>
         <fieldset class="popup-new-avatar__form-set">
-          <input type="url" name="link" value="" class="popup-new-avatar__field-link input card-field-link" required minlength="2" maxlength="200">
-          <span class="link-error input-error"></span>
+          <input type="url" name="input-link" value="" class="popup-new-avatar__field-link input card-field-link" required minlength="2" maxlength="200">
+          <span class="input-link-error input-error"></span>
           <button class="popup__submit-button popup-new-avatar-button submit-button card-submit-button popup__submit-button_disabled" disabled="true" type="submit">Сохранить</button>
         </fieldset>
       </form>

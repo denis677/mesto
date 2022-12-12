@@ -45,6 +45,7 @@ export const divElementSubtitle = document.querySelector(".profile__subtitle");
 export const authorInput = document.querySelector(".profile-field-auhtor");
 export const nameInput = document.querySelector(".profile-field-name");
 export const newAvatarInput = document.querySelector('.popup-new-avatar__field-link');
+export const popupNewAvatars = document.querySelector('.popup-new-avatar')
 
 export const profileButton = document.querySelector(".profile__button");
 export const popupForm = document.querySelector(".card-popup");
@@ -102,11 +103,3 @@ export const apiConfig = {
     'Content-Type': 'application/json'
   }
 }
-
-// export const apiConfigUser = {
-//   baseUrl: 'https://nomoreparties.co/v1/cohort-54/users/me',
-//   headers: {
-//     authorization: 'c38f4f24-04a4-4306-9cb4-8e1863b21959',
-//     'Content-Type': 'application/json'
-//   }
-// }
